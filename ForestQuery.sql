@@ -10,7 +10,9 @@ JOIN(
     FROM land_area) AS la
 ON fa.country_code = la.country_code
 AND fa.year = la.year)
-SELECT *
+SELECT *,
+-- compute the percent of forest area
+forest_area_sqkm / total_area_sqkm AS forest_percent
 FROM land_and_forest AS laf
 -- join region to land & forest table 
 JOIN regions AS r
