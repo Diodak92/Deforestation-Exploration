@@ -1,3 +1,5 @@
+# PROJECT TASKS
+
 ## JOIN TABLES AND CREATE VIEW
 
 1. Create a View called “forestation” by joining all three tables - forest_area, land_area and regions in the workspace.
@@ -24,3 +26,15 @@
 2. What was the percent forest of the entire world in 1990? Which region had the HIGHEST percent forest in 1990, and which had the LOWEST, to 2 decimal places?
 
 3. Based on the table you created, which regions of the world DECREASED in forest area from 1990 to 2016?
+
+## COUNTRY-LEVEL DETAIL
+
+1. Which 5 countries saw the largest amount decrease in forest area from 1990 to 2016? What was the difference in forest area for each?
+
+2. Which 5 countries saw the largest percent decrease in forest area from 1990 to 2016? What was the percent change to 2 decimal places for each?
+
+3. If countries were grouped by percent forestation in quartiles, which group had the most countries in it in 2016?
+
+4. List all of the countries that were in the 4th quartile (percent forest > 75%) in 2016.
+
+5. How many countries had a percent forestation higher than the United States in 2016?

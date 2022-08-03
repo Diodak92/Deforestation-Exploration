@@ -158,3 +158,57 @@ ON t1.region = t2.region
 AND t1.forest_percent <= t2.forest_percent
 ORDER BY change_prc;
 
+
+-- PART 3
+-- COUNTRY-LEVEL DETAIL
+
+-- Q1
+/* Which 5 countries saw the largest amount decrease in forest area from 1990 to 2016?
+What was the difference in forest area for each? */
+
+WITH t1 AS
+  (SELECT country_code, country_name, region, forest_area_sqkm
+  FROM forestation
+  WHERE year = 1990),
+  t2 AS (SELECT country_code, country_name, forest_area_sqkm
+  FROM forestation
+  WHERE year = 2016)
+SELECT t1.country_name, t1.region, 
+t1.forest_area_sqkm AS forest_area_1990,
+t2.forest_area_sqkm AS forest_area_2016,
+ROUND((t2.forest_area_sqkm - t1.forest_area_sqkm)::NUMERIC, 2) AS change
+FROM t1 JOIN t2 ON t1.country_code = t2.country_code
+WHERE t1.country_name NOT LIKE 'World'
+ORDER BY change
+LIMIT 5;
+
+-- Q2
+/* Which 5 countries saw the largest percent decrease in forest area from 1990 to 2016?
+What was the percent change to 2 decimal places for each? */
+
+WITH t1 AS
+  (SELECT country_code, country_name, region, forest_area_sqkm
+  FROM forestation
+  WHERE year = 1990),
+  t2 AS (SELECT country_code, country_name, forest_area_sqkm
+  FROM forestation
+  WHERE year = 2016)
+SELECT t1.country_name, t1.region, 
+t1.forest_area_sqkm AS forest_area_1990,
+t2.forest_area_sqkm AS forest_area_2016,
+ROUND(-((1-(t2.forest_area_sqkm / t1.forest_area_sqkm))*100)::NUMERIC, 2) AS change_prc
+FROM t1 JOIN t2 ON t1.country_code = t2.country_code
+AND  t2.forest_area_sqkm < t1.forest_area_sqkm
+WHERE t1.country_name NOT LIKE 'World'
+ORDER BY change_prc
+LIMIT 5;
+
+-- Q3
+/* If countries were grouped by percent forestation in quartiles,
+which group had the most countries in it in 2016? */
+
+-- Q4
+/* List all of the countries that were in the 4th quartile (percent forest > 75%) in 2016. */
+
+-- Q5
+/* How many countries had a percent forestation higher than the United States in 2016? */
