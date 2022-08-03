@@ -1,4 +1,3 @@
--- PART 1 
 -- Create a View by joining all three tables - forest_area, land_area and regions
 
 CREATE VIEW forestation AS
@@ -17,7 +16,7 @@ JOIN regions AS r
 ON fa.country_code = r.country_code
 ORDER BY country_code, year;
 
--- PART 2 
+-- PART 1 
 -- GLOBAL SITUATION
 
 -- Q1
@@ -92,4 +91,70 @@ WHERE total_area_sqkm >= (
   FROM table1, table2)
 ORDER BY total_area_sqkm
 LIMIT 1;
+
+-- PART 2 
+-- REGIONAL OUTLOOK
+
+-- Q1
+/* What was the percent forest of the entire world in 2016?
+Which region had the HIGHEST percent forest in 2016,
+and which had the LOWEST, to 2 decimal places? */
+
+SELECT sub.*,
+ROUND(((sub.forest_area / sub.land_area)*100)::NUMERIC, 2) AS forest_percent
+FROM(
+  SELECT region, SUM(forest_area_sqkm) AS forest_area,
+  SUM(total_area_sqkm) AS land_area
+  FROM forestation
+  GROUP BY region, year
+  HAVING year = 2016) AS sub
+ORDER BY region;
+
+-- Q2
+/* What was the percent forest of the entire world in 1990?
+Which region had the HIGHEST percent forest in 1990,
+and which had the LOWEST, to 2 decimal places? */
+
+SELECT sub.*,
+ROUND(((sub.forest_area / sub.land_area)*100)::NUMERIC, 2) AS forest_percent
+FROM(
+  SELECT region, SUM(forest_area_sqkm) AS forest_area,
+  SUM(total_area_sqkm) AS land_area
+  FROM forestation
+  GROUP BY region, year
+  HAVING year = 1990) AS sub
+ORDER BY region;
+
+-- Q3
+/* Based on the table you created, 
+which regions of the world DECREASED in forest area from 1990 to 2016? */
+
+WITH t1 AS
+  (SELECT sub.*,
+  ROUND(((sub.forest_area / sub.land_area)*100)::NUMERIC, 2) AS forest_percent
+  FROM(
+    SELECT region, SUM(forest_area_sqkm) AS forest_area,
+    SUM(total_area_sqkm) AS land_area
+    FROM forestation
+    GROUP BY region, year
+    HAVING year = 2016) AS sub
+  ORDER BY forest_percent),
+  
+  t2 AS (SELECT sub.*,
+  ROUND(((sub.forest_area / sub.land_area)*100)::NUMERIC, 2) AS forest_percent
+  FROM(
+    SELECT region, SUM(forest_area_sqkm) AS forest_area,
+    SUM(total_area_sqkm) AS land_area
+    FROM forestation
+    GROUP BY region, year
+    HAVING year = 1990) AS sub
+  ORDER BY forest_percent)
+
+SELECT t1.region, 
+t1.forest_percent - t2.forest_percent AS change_prc
+FROM t1
+JOIN t2
+ON t1.region = t2.region
+AND t1.forest_percent <= t2.forest_percent
+ORDER BY change_prc;
 
