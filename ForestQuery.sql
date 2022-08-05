@@ -18,20 +18,24 @@ FROM forest_area AS fa -- join land and forest tables
   JOIN regions AS r ON fa.country_code = r.country_code
 ORDER BY country_code,
   year;
+
 -- PART 1 
 -- GLOBAL SITUATION
+
 -- Q1
 /* What was the total forest area (in sq km) of the world in 1990?
  Please keep in mind that you can use the country record denoted as “World" in the region table.*/
 SELECT SUM(forest_area_sqkm) AS total_forest_area_1990
 FROM forestation
 WHERE year = 1990;
+
 -- Q2
 /* What was the total forest area (in sq km) of the world in 2016?
  Please keep in mind that you can use the country record in the table is denoted as “World.” */
 SELECT SUM(forest_area_sqkm) AS total_forest_area_2016
 FROM forestation
 WHERE year = 2016;
+
 -- Q3
 /* What was the change (in sq km) in the forest area of the world from 1990 to 2016? */
 WITH table1 AS(
@@ -47,6 +51,7 @@ table2 AS(
 SELECT table1.total_forest_area_1990 - table2.total_forest_area_2016 AS forest_area_change
 FROM table1,
   table2;
+
 -- Q4
 /* What was the percent change in forest area of the world between 1990 and 2016? */
 WITH table1 AS(
@@ -71,6 +76,7 @@ SELECT ROUND(
   )::VARCHAR || '%' AS forest_area_change
 FROM table1,
   table2;
+
 -- Q5
 /* If you compare the amount of forest area lost between 1990 and 2016,
  to which country's total area in 2016 is it closest to? */
@@ -94,8 +100,10 @@ WHERE total_area_sqkm >= (
   )
 ORDER BY total_area_sqkm
 LIMIT 1;
+
 -- PART 2 
 -- REGIONAL OUTLOOK
+
 -- Q1
 /* What was the percent forest of the entire world in 2016?
  Which region had the HIGHEST percent forest in 2016,
@@ -115,6 +123,7 @@ FROM(
     HAVING year = 2016
   ) AS sub
 ORDER BY region;
+
 -- Q2
 /* What was the percent forest of the entire world in 1990?
  Which region had the HIGHEST percent forest in 1990,
@@ -134,6 +143,7 @@ FROM(
     HAVING year = 1990
   ) AS sub
 ORDER BY region;
+
 -- Q3
 /* Based on the table you created, 
  which regions of the world DECREASED in forest area from 1990 to 2016? */
@@ -177,8 +187,10 @@ FROM t1
   JOIN t2 ON t1.region = t2.region
   AND t1.forest_percent < t2.forest_percent
 ORDER BY change_prc;
+
 -- PART 3
 -- COUNTRY-LEVEL DETAIL
+
 -- Q1
 /* Which 5 countries saw the largest amount decrease in forest area from 1990 to 2016?
  What was the difference in forest area for each? */
@@ -210,6 +222,7 @@ FROM t1
 WHERE t1.country_name NOT LIKE 'World'
 ORDER BY change
 LIMIT 5;
+
 -- Q2
 /* Which 5 countries saw the largest percent decrease in forest area from 1990 to 2016?
  What was the percent change to 2 decimal places for each? */
@@ -244,6 +257,7 @@ FROM t1
 WHERE t1.country_name NOT LIKE 'World'
 ORDER BY change_prc
 LIMIT 5;
+
 -- Q3
 /* If countries were grouped by percent forestation in quartiles,
  which group had the most countries in it in 2016? */
@@ -283,6 +297,7 @@ FROM forestation
 WHERE year = 2016
   AND forest_percent >= 75
 ORDER BY forest_percent DESC;
+
 -- Q5
 /* How many countries had a percent forestation higher than the United States in 2016? */
 SELECT COUNT(*) AS count
