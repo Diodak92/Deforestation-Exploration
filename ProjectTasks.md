@@ -27,7 +27,7 @@
 
 3. Based on the table you created, which regions of the world DECREASED in forest area from 1990 to 2016?
 
-## COUNTRY-LEVEL DETAIL
+## PART 3 COUNTRY-LEVEL DETAIL
 
 1. Which 5 countries saw the largest amount decrease in forest area from 1990 to 2016? What was the difference in forest area for each?
 
