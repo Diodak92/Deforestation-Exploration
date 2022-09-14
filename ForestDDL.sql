@@ -22,3 +22,23 @@ CREATE TABLE IF NOT EXISTS "regions"(
     "region" VARCHAR,
     "income_group" VARCHAR
 );
+
+-- insert data from CSV files
+
+-- forest area
+COPY forest_area
+FROM '/absolute_path/Deforestation-Exploration/db_files/forest_area.csv'
+DELIMITER ','
+CSV HEADER;
+
+-- land area
+COPY land_area
+FROM '/absolute_path/Deforestation-Exploration/db_files/land_area.csv'
+DELIMITER ','
+CSV HEADER;
+
+-- regions
+COPY regions
+FROM '/absolute_path/Deforestation-Exploration/db_files/regions.csv'
+DELIMITER ','
+CSV HEADER;
