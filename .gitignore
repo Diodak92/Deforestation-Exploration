@@ -1,3 +1,5 @@
 # Ignore temporary files
 ~$forestation_solution_TomaszMarcinKowalski.docx
 ~WRL0003.tmp
+.DS_Store
+
