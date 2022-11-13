@@ -1,7 +1,10 @@
-# Deforestation-Exploration
-Study on global deforestation data, 1990 to 2016 from World Bank 
+# Deforestation-Exploration 🪓🌲🌳🌴🪚
 
-## Running queries on local machine
+## Project overview
+Study on global deforestation data, 1990 to 2016 from [World Bank](https://www.worldbank.org/en/home) 🏡 
+The list of questions was included in the file ```ProjectTasks.md```
+
+## Running queries on local machine (Mac)
 1. Install PostgreSQL: https://www.postgresql.org
 2. Open terminal and change directory where the project is located: 
 
