@@ -22,7 +22,7 @@ cd local_path/Deforestation-Exploration
 ``` shell
 sh create_db.sh
 ```
-5. Now you are ready to run your queries!
+5. Now you are ready to run queries!
 ``` shell
 psql -d deforestation -f ForestQuery.sql
 ```
