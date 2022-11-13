@@ -17,7 +17,9 @@ The list of questions was included in the file ```ProjectTasks.md```
 '/absolute_path/Deforestation-Exploration/db_files/regions.csv'
 ```
 4. Run the command for creating a database, loading data from CSV files and creating a view:
+
 ``` shell sh create_db.sh ```
+
 If the command was successful you should receive the following response:
 ```
 CREATE DATABASE
