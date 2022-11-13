@@ -1,4 +1,4 @@
-# Deforestation-Exploration 🪓🌲🌳🌴🪚
+# Deforestation Exploration 🪓🌲🌳🌴🪚
 
 ## Project overview
 Study on global deforestation data, 1990 to 2016 from [World Bank](https://www.worldbank.org/en/home) 🏡 
