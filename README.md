@@ -5,7 +5,7 @@ The project demonstrate the practical use of the SQL for data analysis.
 ## Project overview
 Global deforestation will become a bigger concern in the coming years. This project includes study on global deforestation data, 1990 to 2016 from [World Bank](https://www.worldbank.org/en/home) 🌍 The results of the analysis are presented in the [report](https://github.com/Diodak92/Deforestation-Exploration/blob/main/deforestation_solution_TomaszMarcinKowalski.pdf).
 
-2. ## Running queries on local machine (Mac)
+## Running queries on local machine (Mac)
 1. Install PostgreSQL: https://www.postgresql.org
 2. Open terminal and change directory where the project is located: 
 
