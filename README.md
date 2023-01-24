@@ -1,9 +1,11 @@
 # Deforestation Exploration 🪓🌲🌳🌴🪚
 
-## Project overview
-Global deforestation will become a bigger concern in the coming years. This project includes study on global deforestation data, 1990 to 2016 from [World Bank](https://www.worldbank.org/en/home) 🌍  The results of the analysis are presented in this report  ```ProjectTasks.md```
+The project demonstrate the practical use of the SQL data query language.
 
-## Running queries on local machine (Mac)
+## Project overview
+Global deforestation will become a bigger concern in the coming years. This project includes study on global deforestation data, 1990 to 2016 from [World Bank](https://www.worldbank.org/en/home) 🌍 The results of the analysis are presented in the [report](https://github.com/Diodak92/Deforestation-Exploration/blob/main/deforestation_solution_TomaszMarcinKowalski.pdf)
+
+2. ## Running queries on local machine (Mac)
 1. Install PostgreSQL: https://www.postgresql.org
 2. Open terminal and change directory where the project is located: 
 
@@ -49,7 +51,7 @@ psql -d deforestation -f ForestQuery.sql
 
 5. Keep in mind that the column forest_area_sqkm in the forest_area table and the land_area_sqmi in the land_area table are in different units (square kilometers and square miles, respectively), so an adjustment will need to be made in the calculation you write (1 sq mi = 2.59 sq km).
 
-**PART 1 - GLOBAL SITUATION**
+PART 1 - GLOBAL SITUATION**
 
 1. What was the total forest area (in sq km) of the world in 1990? Please keep in mind that you can use the country record denoted as “World" in the region table.
 2. What was the total forest area (in sq km) of the world in 2016? Please keep in mind that you can use the country record in the table is denoted as “World.”
