@@ -51,7 +51,7 @@ psql -d deforestation -f ForestQuery.sql
 
 5. Keep in mind that the column forest_area_sqkm in the forest_area table and the land_area_sqmi in the land_area table are in different units (square kilometers and square miles, respectively), so an adjustment will need to be made in the calculation you write (1 sq mi = 2.59 sq km).
 
-PART 1 - GLOBAL SITUATION**
+**PART 1 - GLOBAL SITUATION**
 
 1. What was the total forest area (in sq km) of the world in 1990? Please keep in mind that you can use the country record denoted as “World" in the region table.
 2. What was the total forest area (in sq km) of the world in 2016? Please keep in mind that you can use the country record in the table is denoted as “World.”
