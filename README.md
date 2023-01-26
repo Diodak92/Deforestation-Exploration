@@ -11,7 +11,7 @@ Global deforestation will become a bigger concern in the coming years. This proj
 
 ```shell cd local_path/Deforestation-Exploration```
 
-3. Update file path in ForestDDL.sql for the following files: 
+3. Update file path in ```ForestDDL.sql``` for the following files: 
 ``` psql
 '/absolute_path/Deforestation-Exploration/db_files/forest_area.csv'
 '/absolute_path/Deforestation-Exploration/db_files/land_area.csv'
