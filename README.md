@@ -1,9 +1,9 @@
 # Deforestation Exploration 🪓🌲🌳🌴🪚
 
-The project demonstrate the practical use of the SQL for data analysis.
+This project demonstrates the practical use of SQL for data analysis.
 
 ## Project overview
-Global deforestation will become a bigger concern in the coming years. This project includes study on global deforestation data, 1990 to 2016 from [World Bank](https://www.worldbank.org/en/home) 🌍 The results of the analysis are presented in the [report](https://github.com/Diodak92/Deforestation-Exploration/blob/main/deforestation_solution_TomaszMarcinKowalski.pdf).
+Global deforestation is an increasingly growing concern. This project includes data from the [World Bank](https://www.worldbank.org/en/home) 🌍 on global deforestation from the year 1990 to 2016. Results of the analysis are presented in this [report](https://github.com/Diodak92/Deforestation-Exploration/blob/main/deforestation_solution_TomaszMarcinKowalski.pdf).
 
 ## Running queries on local machine (Mac)
 1. Install PostgreSQL: https://www.postgresql.org
